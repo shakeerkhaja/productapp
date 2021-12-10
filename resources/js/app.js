@@ -6,10 +6,13 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import PrimeVue from 'primevue/config';
+import VueGoodTablePlugin from 'vue-good-table-next';
+import ConfirmationService from 'primevue/confirmationservice';
 import 'primevue/resources/themes/saga-blue/theme.css';       //theme
 import 'primevue/resources/primevue.min.css';                //core css
 import 'primeicons/primeicons.css';                           //icons
 import 'primeflex/primeflex.css';
+
 
 
 
@@ -22,6 +25,8 @@ createInertiaApp({
         return createApp({ render: () => h(app, props) })
             .use(plugin)
             .use(PrimeVue)
+            .use(VueGoodTablePlugin)
+            .use(ConfirmationService)
             .mixin({ methods: { route } })
             .mount(el);
     },

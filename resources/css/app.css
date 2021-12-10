@@ -3,3 +3,110 @@
 @import 'tailwindcss/utilities';
 
 
+@import "vue-good-table-next/dist/vue-good-table-next.css";
+
+/************ TABLE OF CONTENTS ***************
+1. General Styles
+3. Vue Good Table Styles
+
+**********************************************/
+
+
+/* General Styles */
+.card {
+    @apply shadow overflow-hidden sm:rounded-md;
+}
+
+.card-body {
+    @apply px-2 py-4 bg-white sm:p-4;
+}
+
+.p-error, .p-invalid {
+
+    color: #f44336 !important;
+}
+.w-13 {
+    width: 87px !important;
+}
+
+
+/* VueGoodTable Styles */
+
+table.vgt-table {
+    @apply border-none bg-transparent;
+}
+
+.vgt-table thead {
+    @apply bg-white;
+}
+
+.vgt-table.bordered th {
+    @apply border-none bg-transparent uppercase text-sm;
+    background: none;
+}
+
+.vgt-table.bordered thead tr:nth-child(2) th {
+    @apply border-none bg-gray-100;
+    padding: 10px;
+}
+
+.vgt-table.bordered tbody tr {
+    @apply border-none bg-white;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.vgt-table.bordered tbody tr:hover {
+    @apply bg-gray-50;
+}
+
+.vgt-table.bordered td {
+    @apply border-none;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    vertical-align: middle;
+}
+
+.vgt-wrap__footer .footer__navigation__page-info__current-entry {
+    @apply border-none text-white bg-gray-400 rounded-sm text-sm outline-none;
+    line-height: 1.25rem;
+    width: 50px;
+    height: 30px;
+}
+
+.vgt-wrap__footer .footer__navigation__page-info__current-entry [type='text'] {
+    @apply p-0 rounded-sm text-sm;
+}
+
+.vgt-wrap__footer .footer__row-count__select {
+    @apply text-white text-sm bg-gray-400 rounded-sm border-gray-400;
+    background-image: none;
+}
+
+.vgt-wrap__footer .footer__row-count__select:focus {
+    @apply border-gray-300 outline-none;
+}
+
+.vgt-global-search {
+    @apply border-none bg-transparent;
+}
+
+.vgt-wrap__footer {
+    @apply border-none bg-white px-4 pt-4 pb-0 text-sm;
+    background: none;
+}
+
+.vgt-wrap__footer .footer__row-count__label {
+    @apply text-sm uppercase;
+}
+
+.vgt-wrap__footer .footer__navigation__page-info span {
+    @apply text-sm uppercase;
+}
+.vgt-wrap__footer .footer__navigation__page-btn span {
+    @apply text-sm uppercase;
+}
+
+.vgt-inner-wrap {
+    box-shadow: none !important;
+}

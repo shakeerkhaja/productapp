@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/products', function () {
-    return Inertia::render('Product/Product');
-})->name('products');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    /*
+    |--------------------------------------------------------------------------
+    | CRUD Routes
+    |--------------------------------------------------------------------------
+    */
+
+    Route::resource('products', ProductController::class);
+    Route::post('products/deleteAll', [ProductController::class, 'deleteAll'])->name('products.delete_all');
+
+});

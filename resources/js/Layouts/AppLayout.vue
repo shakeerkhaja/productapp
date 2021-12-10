@@ -22,7 +22,7 @@
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('products')" :active="route().current('products')">
+                                <jet-nav-link :href="route('products.index')" :active="route().current('products.index')">
                                     Products
                                 </jet-nav-link>
                             </div>
@@ -236,8 +236,17 @@
 
             <!-- Page Content -->
             <main>
+                <div class="container mx-auto sm:px-6 lg:px-8">
+                    <Message v-show="$page.props.successMessage" severity="success" :closable="false">{{ $page.props.successMessage }}</Message>
+                    <Message v-if="$page.props.errorMessage" severity="error" :closable="false">{{ $page.props.errorMessage }}</Message>
+                </div>
                 <slot></slot>
             </main>
+
+
+            <ConfirmDialog></ConfirmDialog>
+            <Toast position="top-right" />
+
         </div>
     </div>
 </template>
@@ -251,6 +260,9 @@
     import JetNavLink from '@/Jetstream/NavLink.vue'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    import ConfirmDialog from 'primevue/confirmdialog';
+    import Toast from 'primevue/toast';
+    import Message from 'primevue/message';
 
     export default defineComponent({
         props: {
@@ -266,11 +278,16 @@
             JetNavLink,
             JetResponsiveNavLink,
             Link,
+            ConfirmDialog,
+            Toast,
+            Message
         },
 
         data() {
             return {
                 showingNavigationDropdown: false,
+                successMessage: String,
+                errorMessage: String,
             }
         },
 

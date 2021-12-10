@@ -28,6 +28,7 @@
     "dependencies": {
         "primeflex": "^2.0.0",
         "primeicons": "^5.0.0",
-        "primevue": "^3.10.0"
+        "primevue": "^3.10.0",
+        "vue-good-table-next": "^0.1.0"
     }
 }
