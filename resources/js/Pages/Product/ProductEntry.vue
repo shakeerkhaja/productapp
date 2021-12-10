@@ -18,11 +18,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="p-fluid p-formgrid p-grid">
+                                    <!-- Name -->
                                     <div class="p-field p-col">
                                         <label for="name" class="font-semibold">Name<span class="ml-1 text-red-400">*</span></label>
                                         <InputText id="name" type="text" v-model="form.name" placeholder="Enter Product Name" :class="[errors.name ? 'p-invalid' : '']"/>
                                         <small id="name-help" v-if="errors.name" class="p-invalid">{{ errors.name }}</small>
                                     </div>
+                                    <!-- UPC -->
                                     <div class="p-field p-col">
                                         <label for="upc" class="font-semibold">UPC<span class="ml-1 text-red-400">*</span></label>
                                         <InputText id="upc" type="text" v-model="form.upc" placeholder="Enter Universal Product Code" :class="[errors.upc ? 'p-invalid' : '']"/>
@@ -30,17 +32,20 @@
                                     </div>
                                 </div>
                                 <div class="p-fluid p-formgrid p-grid">
+                                    <!-- Price -->
                                     <div class="p-field p-col">
                                         <label for="price" class="font-semibold">Price<span class="ml-1 text-red-400">*</span></label>
                                         <InputText id="price" type="text" v-model="form.price" placeholder="Enter Price" :class="[errors.price ? 'p-invalid' : '']"/>
                                         <small id="price-help" v-if="errors.upc" class="p-invalid">{{ errors.price }}</small>
                                     </div>
+                                    <!-- Status -->
                                     <div class="p-field p-col mt-5">
                                         <label for="status" class="font-semibold">Status<span class="ml-1 text-red-400">*</span></label>
                                         <InputSwitch v-model="form.status" class="pt-5 ml-5" />
                                     </div>
                                 </div>
 
+                                <!-- Image Upload -->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <img :src="form.image" class="img-responsive" height="70" width="90" >
@@ -48,9 +53,9 @@
                                     <div class="col-md-6">
                                         <input type="file" ref="file" v-on:change="onImageChange" class="form-control">
                                     </div>
-
                                 </div>
 
+                                <!-- Submit -->
                                 <div class="w-full flex mt-4">
                                     <Button type="submit" class="p-button-raised" icon="pi pi-check" :label="editFlag ? 'Update Product' : 'Add Product'" />
                                 </div>
@@ -110,7 +115,7 @@
                     name: this.product !== null ? this.product.name : '',
                     upc: this.product !== null ? this.product.upc : '',
                     price: this.product !== null ? this.product.price : '',
-                    image: this.product !== null ? this.product.image : '',
+                    image: this.product !== null ? '/images/' + this.product.image : '',
                     status: true,
                 },
                 formValidated: false,
@@ -119,7 +124,6 @@
             }
         },
         methods: {
-
 
             onImageChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
